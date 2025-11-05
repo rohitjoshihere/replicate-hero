@@ -11,8 +11,13 @@ const Header = () => {
               <Rocket className="w-5 h-5 text-primary-foreground" />
             </div>
             <span className="text-xl font-bold">
-              <span className="text-primary">LaunchPad</span>
-              <span className="text-foreground"> Labs</span>
+              <span 
+                className="bg-clip-text text-transparent"
+                style={{ backgroundImage: 'var(--gradient-logo)' }}
+              >
+                LaunchPad
+              </span>
+              <span className="text-black"> Labs</span>
             </span>
           </div>
 
@@ -34,7 +39,14 @@ const Header = () => {
             </a>
           </nav>
 
-          <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 shadow-[var(--shadow-soft)] transition-all hover:shadow-[var(--shadow-card)] hover:scale-105">
+          <Button 
+            variant="cta"
+            className="rounded-[30px] px-6 border-[#9CC6FF]"
+            style={{
+              background: 'var(--gradient-button)',
+              boxShadow: 'var(--shadow-button)'
+            }}
+          >
             Book A Call
           </Button>
         </div>

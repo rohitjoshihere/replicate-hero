@@ -42,8 +42,11 @@ All colors MUST be HSL.
     --radius: 0.75rem;
     
     --gradient-hero: linear-gradient(135deg, hsl(211, 100%, 59%) 0%, hsl(211, 100%, 65%) 100%);
+    --gradient-button: linear-gradient(-2.38deg, #0F93FF 0%, #003BB9 100%);
+    --gradient-logo: linear-gradient(90deg, #2209A7, #03BDF7);
     --shadow-soft: 0 4px 24px -1px hsl(211 100% 59% / 0.15);
     --shadow-card: 0 8px 32px -4px hsl(0 0% 0% / 0.08);
+    --shadow-button: 0px 46px 13px rgba(30,113,229,0), 0px 30px 12px rgba(30,113,229,0.02), 0px 17px 10px rgba(30,113,229,0.08), 0px 7px 7px rgba(30,113,229,0.13), 0px 2px 4px rgba(30,113,229,0.15);
 
     --sidebar-background: 0 0% 98%;
 
