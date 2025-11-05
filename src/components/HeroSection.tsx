@@ -11,7 +11,7 @@ const HeroSection = () => {
 
       <DecorativeElements />
       <div className="container mx-auto max-w-6xl relative z-10">
-        <div className="text-center mb-12">
+        <div className="text-center mb-10">
           {/* Status Badge */}
           <NotificationBadge
             text="5 Founder booked the call this week"
@@ -19,9 +19,9 @@ const HeroSection = () => {
           />
 
           {/* Hero Heading */}
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold text-foreground mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
+          <h1 className="text-[52px] leading-[75px] font-semibold text-foreground text-center mb-6 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
             We Build and
-            <span className="inline-flex items-cent\er ustify-center align-top h-full">
+            <span className="inline-flex items-center justify-center align-top h-full">
               <Hero />
             </span>
             Launch Your
@@ -50,17 +50,23 @@ const HeroSection = () => {
             </span>
           </div>
 
-          {/* CTA Button */}
-          {/* <Button 
-            size="lg"
-            className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-lg rounded-xl shadow-[var(--shadow-soft)] transition-all hover:shadow-[var(--shadow-card)] hover:scale-105 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-400"
-          >
-            Book My Free MVP Call
-          </Button> */}
+          {/* CTA Button moved to overlap calendar section below */}
         </div>
 
-        {/* Calendar Card */}
-        <div className="flex justify-center animate-in fade-in slide-in-from-bottom-8 duration-700 delay-500">
+        {/* Calendar Card with overlapping CTA */}
+        <div className="relative flex justify-center animate-in fade-in slide-in-from-bottom-8 duration-700 delay-500">
+          <div className="absolute -top-7 left-1/2 -translate-x-1/2 z-20">
+            <Button
+              variant="cta"
+              className="px-6 sm:px-8 h-auto py-3 sm:py-4 text-base sm:text-lg"
+              style={{
+                background: 'linear-gradient(-2.38deg, #0f93ff, #003bb9)',
+                boxShadow: 'var(--shadow-button)'
+              }}
+            >
+              Book My Free MVP Call
+            </Button>
+          </div>
           <CalendarCard />
         </div>
       </div>
