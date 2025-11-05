@@ -19,12 +19,12 @@ const CalendarCard = () => {
   ];
 
   return (
-    <div className="bg-card rounded-3xl shadow-[var(--shadow-card)] p-6 sm:p-8 max-w-2xl w-full border border-border/50">
-      <div className="flex flex-col sm:flex-row gap-8">
-        {/* Calendar */}
-        <div className="flex-1">
-          <div className="flex items-center justify-between mb-6">
-            <h3 className="text-lg font-semibold text-foreground">
+    <div className="w-auto mx-auto">
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8">
+        {/* Calendar card (left) */}
+        <div className="bg-card rounded-[20px] shadow-[var(--shadow-card)] p-4 border border-border/50 w-[278px] h-[187px] overflow-hidden">
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-sm font-semibold text-foreground">
               October <span className="text-muted-foreground">2025</span>
             </h3>
           </div>
@@ -35,7 +35,7 @@ const CalendarCard = () => {
               {daysOfWeek.map((day) => (
                 <div
                   key={day}
-                  className="text-xs font-medium text-muted-foreground text-center"
+                  className="text-[10px] font-medium text-muted-foreground text-center"
                 >
                   {day}
                 </div>
@@ -50,8 +50,8 @@ const CalendarCard = () => {
                     key={dayIndex}
                     onClick={() => date && setSelectedDate(date)}
                     disabled={!date}
-                    className={`
-                      aspect-square rounded-lg text-sm font-medium transition-all
+                  className={`
+                      aspect-square rounded-lg text-[11px] font-medium transition-all
                       ${!date ? "invisible" : ""}
                       ${
                         date === selectedDate
@@ -68,35 +68,44 @@ const CalendarCard = () => {
           </div>
         </div>
 
-        {/* Time Slots */}
-        <div className="w-full sm:w-40 border-l border-border pl-6">
-          <div className="flex gap-2 mb-4">
-            <button className="px-3 py-1 text-sm font-medium bg-primary text-primary-foreground rounded-lg">
-              12h
-            </button>
-            <button className="px-3 py-1 text-sm font-medium text-muted-foreground hover:bg-secondary rounded-lg">
-              24h
-            </button>
+        {/* Time card (right) */}
+        <div className="w-[278px] h-[187px] bg-card rounded-[20px] shadow-[var(--shadow-card)] p-4 border border-border/50 overflow-hidden">
+          <div className="flex justify-end mb-2">
+            <div className="bg-background/60 rounded-xl p-1 border border-border/60 backdrop-blur">
+              <button className="px-2.5 py-0.5 text-xs font-medium bg-foreground/90 text-background rounded-lg">12h</button>
+              <button className="px-2.5 py-0.5 text-xs font-medium text-muted-foreground">24h</button>
+            </div>
           </div>
 
           <div className="space-y-2">
-            {timeSlots.map(({ time, available }) => (
-              <button
-                key={time}
-                onClick={() => setSelectedTime(time)}
-                disabled={!available}
-                className={`
-                  w-full py-3 px-4 rounded-xl text-sm font-medium transition-all
-                  ${
-                    time === selectedTime
-                      ? "bg-primary text-primary-foreground shadow-md scale-105"
-                      : "bg-secondary/30 text-foreground hover:bg-secondary hover:scale-105"
+            {timeSlots.map(({ time, available }) => {
+              const isSelected = time === selectedTime;
+              return (
+                <button
+                  key={time}
+                  onClick={() => setSelectedTime(time)}
+                  disabled={!available}
+                  className={`w-full py-2.5 px-3.5 rounded-2xl text-[13px] font-semibold transition-all text-center
+                    ${
+                      !available
+                        ? "bg-muted text-muted-foreground/70 cursor-not-allowed"
+                        : isSelected
+                        ? "text-white shadow-lg"
+                        : "bg-secondary/40 text-foreground hover:bg-secondary"
+                    }`}
+                  style={
+                    isSelected
+                      ? {
+                          background: "linear-gradient(180deg, #5fb3ff 0%, #2c86ff 100%)",
+                          boxShadow: "0 10px 24px rgba(47, 131, 255, 0.35)",
+                        }
+                      : undefined
                   }
-                `}
-              >
-                {time}
-              </button>
-            ))}
+                >
+                  {time}
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>
